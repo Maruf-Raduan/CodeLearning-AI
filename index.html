@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { 
@@ -206,11 +207,11 @@
         }
         button:active { transform: translateY(0); }
         pre { 
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             padding: 16px;
             border-radius: 8px;
             overflow-x: auto;
-            margin-top: 10px;
+            margin: 12px 0;
             border: 1px solid rgba(148, 163, 184, 0.2);
             font-size: 13px;
             line-height: 1.6;
@@ -225,6 +226,32 @@
             white-space: pre-wrap;
             word-break: normal;
             overflow-wrap: break-word;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+        }
+        .message-content p {
+            margin: 8px 0;
+        }
+        .message-content ul, .message-content ol {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+        .message-content li {
+            margin: 4px 0;
+        }
+        .message-content strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+        .message-content em {
+            font-style: italic;
+            color: #cbd5e1;
         }
         code { color: #94a3b8; }
         @keyframes fadeIn {
@@ -323,19 +350,24 @@
                 content.appendChild(img);
             }
             
-            if (!isUser && (text.includes('public class') || text.includes('{'))) {
-                const pre = document.createElement('pre');
-                pre.innerHTML = '<code>' + escapeHtml(text) + '</code>';
-                content.appendChild(pre);
+            if (isUser) {
+                // User messages - plain text
+                content.textContent = text;
             } else {
-                // Format text with line breaks
-                const lines = text.split('\n');
-                lines.forEach((line, index) => {
-                    content.appendChild(document.createTextNode(line));
-                    if (index < lines.length - 1) {
-                        content.appendChild(document.createElement('br'));
-                    }
-                });
+                // AI messages - render markdown
+                if (typeof marked !== 'undefined') {
+                    marked.setOptions({
+                        breaks: true,
+                        gfm: true,
+                        highlight: function(code) {
+                            return code;
+                        }
+                    });
+                    content.innerHTML = marked.parse(text);
+                } else {
+                    // Fallback if marked.js not loaded
+                    content.innerHTML = text.replace(/\n/g, '<br>');
+                }
             }
             
             msg.appendChild(content);
@@ -363,11 +395,7 @@
             document.getElementById('imagePreview').style.display = 'none';
         }
         
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
+
         
 
         
