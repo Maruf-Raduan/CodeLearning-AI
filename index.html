@@ -102,25 +102,37 @@
         .chat-box::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
         .chat-box::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
         .message { 
-            margin: 15px 0;
-            padding: 15px 20px;
-            border-radius: 15px;
-            max-width: 80%;
+            margin: 20px 0;
+            padding: 0;
             animation: slideIn 0.3s ease-out;
             line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
-        .user { 
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .message-content {
+            flex: 1;
+            color: #e2e8f0;
+            padding-top: 4px;
+        }
+        .user .message-avatar { 
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 5px;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
-        .assistant { 
-            background: rgba(30, 41, 59, 0.8);
-            color: #e2e8f0;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-bottom-left-radius: 5px;
+        .assistant .message-avatar { 
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
         .input-area { 
             padding: 20px 25px;
@@ -255,25 +267,42 @@
             const msg = document.createElement('div');
             msg.className = 'message ' + (isUser ? 'user' : 'assistant');
             
+            // Avatar
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.innerHTML = isUser ? '<i class="fa-solid fa-user"></i>' : '<i class="fa-brands fa-java"></i>';
+            msg.appendChild(avatar);
+            
+            // Content
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            
             if (imageUrl && isUser) {
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.style.maxWidth = '200px';
                 img.style.borderRadius = '8px';
                 img.style.marginBottom = '10px';
-                msg.appendChild(img);
-                msg.appendChild(document.createElement('br'));
+                img.style.display = 'block';
+                content.appendChild(img);
             }
             
             if (!isUser && (text.includes('public class') || text.includes('{'))) {
                 const pre = document.createElement('pre');
                 pre.innerHTML = '<code>' + escapeHtml(text) + '</code>';
-                msg.appendChild(pre);
+                content.appendChild(pre);
             } else {
-                const textNode = document.createTextNode(text);
-                msg.appendChild(textNode);
+                // Format text with line breaks
+                const lines = text.split('\n');
+                lines.forEach((line, index) => {
+                    content.appendChild(document.createTextNode(line));
+                    if (index < lines.length - 1) {
+                        content.appendChild(document.createElement('br'));
+                    }
+                });
             }
             
+            msg.appendChild(content);
             chatBox.appendChild(msg);
             chatBox.scrollTop = chatBox.scrollHeight;
         }
