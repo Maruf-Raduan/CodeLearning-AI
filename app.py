@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify, send_from_directory
-from java_learning_assistant import JavaLearningAssistant
+from gemini_assistant import GeminiJavaAssistant
+import os
 
 app = Flask(__name__)
-assistant = JavaLearningAssistant()
+assistant = GeminiJavaAssistant()
 
 @app.route('/')
 def index():

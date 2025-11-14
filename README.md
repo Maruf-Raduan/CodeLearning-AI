@@ -2,7 +2,9 @@
 
 ## Java Learning Assistant AI
 
-An interactive AI assistant to make learning Java easy and fun!
+An interactive AI assistant powered by Google Gemini to make learning Java easy and fun!
+
+🤖 **Powered by Google Gemini API** (Free tier available)
 
 ### Features
 - Get Java code examples instantly
