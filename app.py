@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify, send_from_directory
 from gemini_assistant import GeminiJavaAssistant
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 assistant = GeminiJavaAssistant()
