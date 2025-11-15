@@ -1,17 +1,19 @@
-# Project-Alfa
+# CodeShikhi - AI
 
-## Java Learning Assistant AI
+## AI Programming Learning Assistant
 
-An interactive AI assistant powered by Google Gemini to make learning Java easy and fun!
+An interactive AI assistant powered by Google Gemini to learn ANY programming language!
 
 🤖 **Powered by Google Gemini API** (Free tier available)
+🌐 **Supports 10+ Programming Languages**
 
 ### Features
-- Get Java code examples instantly
-- Understand concepts with clear explanations
-- Validate your Java code for common errors
-- Take quizzes to test your knowledge
-- Get personalized learning suggestions
+- 🌐 Learn ANY programming language (Java, Python, JavaScript, C++, Go, Rust, etc.)
+- 🤖 AI-powered explanations and code examples
+- 📷 Image analysis for code screenshots
+- 💾 Chat history with localStorage
+- ⚡ Fast responses with optimized prompts
+- 🎨 Professional, modern UI
 
 ### Usage
 
@@ -19,22 +21,34 @@ An interactive AI assistant powered by Google Gemini to make learning Java easy 
 python java_learning_assistant.py
 ```
 
-### Commands
-- `example [topic]` - Get code examples (hello world, class, loop, etc.)
-- `explain [concept]` - Understand Java concepts (class, method, inheritance, etc.)
-- `check code` - Validate your Java code
-- `quiz [topic]` - Test your knowledge
-- `next topic` - Get learning path suggestions
-- `help` - Show all commands
+### How to Use
+1. **Select Language**: Choose from dropdown (or select "Any Language")
+2. **Ask Questions**: "explain inheritance in Java", "show me Python loops"
+3. **Get Code Examples**: "create a REST API in Node.js"
+4. **Upload Images**: Analyze code screenshots
+5. **View History**: Access previous conversations
+
+### Supported Languages
+- ☕ Java
+- 🐍 Python
+- 💛 JavaScript/TypeScript
+- ⚡ C/C++
+- 🔷 C#
+- 🔵 Go
+- 🦀 Rust
+- 🐘 PHP
+- 💎 Ruby
+- 🍎 Swift
+- 🟣 Kotlin
+- And more!
 
 ### Example Session
 ```
-You: example hello world
-Assistant: [Shows Hello World code]
+Language: Python
+You: explain list comprehension
+Assistant: [Detailed explanation with examples]
 
-You: explain class
-Assistant: A class is a blueprint for creating objects...
-
-You: quiz basics
-Assistant: [Shows quiz question]
+Language: JavaScript
+You: show me async/await example
+Assistant: [Complete async example]
 ```

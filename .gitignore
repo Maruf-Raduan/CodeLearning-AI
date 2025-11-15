@@ -1,7 +1,29 @@
+# Python
+venv/
+.venv/
 __pycache__/
 *.py[cod]
+*$py.class
 *.so
 .Python
-venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
 .env
-*.key
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+app.log
+check_models.py
