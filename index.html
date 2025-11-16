@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CodeShikhi - AI</title>
+    <title>CodeLearning-AI - Master Programming with AI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -250,6 +250,231 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
+        }
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(ellipse at top, #1e293b 0%, #0a0e27 50%, #020617 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.8s ease-in;
+            overflow: hidden;
+        }
+        .welcome-screen::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.3;
+        }
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        .welcome-screen.hidden {
+            animation: fadeOut 0.5s ease-out;
+            pointer-events: none;
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; transform: scale(0.95); }
+        }
+        .welcome-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .welcome-logo {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: white;
+            margin: 0 auto 35px;
+            box-shadow: 0 25px 70px rgba(59, 130, 246, 0.5), 0 0 100px rgba(139, 92, 246, 0.3);
+            animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+            position: relative;
+        }
+        .welcome-logo::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            border-radius: 35px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(20px);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 25px 70px rgba(59, 130, 246, 0.5), 0 0 100px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 25px 70px rgba(139, 92, 246, 0.6), 0 0 120px rgba(59, 130, 246, 0.4); }
+        }
+        .welcome-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            animation: slideDown 0.8s ease-out;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .welcome-subtitle {
+            font-size: 1.4rem;
+            color: #cbd5e1;
+            margin-bottom: 50px;
+            font-weight: 400;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 50px 0;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .welcome-title { font-size: 2.5rem; }
+        }
+        .feature-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 30px 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+            background: rgba(30, 41, 59, 0.9);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+        }
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .feature-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+        .start-btn {
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+        .start-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .start-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        .start-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.6);
+        }
+        .start-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        .start-btn i {
+            position: relative;
+            z-index: 1;
+        }
+        .start-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            animation: slideUp 0.8s ease-out 0.8s both;
+        }
+        .badge {
+            padding: 8px 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 20px;
+            color: #22c55e;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .chat-container {
             flex: 1;
@@ -512,15 +737,66 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <h1 class="welcome-title">CodeLearning-AI</h1>
+            <p class="welcome-subtitle">Master Programming with Advanced Multi-AI System</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">7 AI Models</div>
+                    <div class="feature-desc">Gemini, GPT-4, DeepSeek, Groq, Cohere & more</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <div class="feature-title">13+ Languages</div>
+                    <div class="feature-desc">Java, Python, C++, JavaScript, TypeScript & more</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <div class="feature-title">Image Analysis</div>
+                    <div class="feature-desc">Upload & analyze code screenshots instantly</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-title">100% FREE</div>
+                    <div class="feature-desc">No credit card or payment required</div>
+                </div>
+            </div>
+            
+            <button class="start-btn" onclick="startLearning()">
+                <i class="fa-solid fa-rocket"></i> <span>Start Learning Now</span>
+            </button>
+            
+            <div class="badge-container">
+                <div class="badge">
+                    <i class="fa-solid fa-check-circle"></i> No Sign Up
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-infinity"></i> Unlimited Access
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-shield-halved"></i> Secure & Private
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main App -->
+    <div class="container" id="mainApp" style="display: none;">
         <div class="header">
             <div class="logo-section">
                 <div class="logo-icon">
                     <i class="fa-solid fa-code"></i>
                 </div>
                 <div>
-                    <h1>CodeShikhi - AI</h1>
-                    <p class="subtitle">Learn Any Programming Language with AI</p>
+                    <h1>CodeLearning-AI</h1>
+                    <p class="subtitle">Master Programming with Multi-AI System</p>
                 </div>
             </div>
             <div class="header-actions">
@@ -530,6 +806,9 @@
                     <option value="groq">Groq (Fast)</option>
                     <option value="cohere">Cohere</option>
                     <option value="huggingface">HuggingFace</option>
+                    <option value="deepseek">DeepSeek</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="perplexity">Perplexity</option>
                 </select>
                 <select id="languageSelect" class="history-btn" style="padding: 8px 12px; cursor: pointer; font-size: 14px;">
                     <option value="any">Any Language</option>
@@ -909,17 +1188,17 @@
         document.getElementById('aiModelSelect').addEventListener('change', function() {
             const model = this.value;
             const statusBadge = document.querySelector('.status-badge span:last-child');
-            if (model === 'auto') {
-                statusBadge.textContent = 'Auto Mode';
-            } else if (model === 'gemini') {
-                statusBadge.textContent = 'Gemini';
-            } else if (model === 'groq') {
-                statusBadge.textContent = 'Groq';
-            } else if (model === 'cohere') {
-                statusBadge.textContent = 'Cohere';
-            } else if (model === 'huggingface') {
-                statusBadge.textContent = 'HuggingFace';
-            }
+            const modelNames = {
+                'auto': 'Auto Mode',
+                'gemini': 'Gemini',
+                'groq': 'Groq',
+                'cohere': 'Cohere',
+                'huggingface': 'HuggingFace',
+                'deepseek': 'DeepSeek',
+                'openai': 'OpenAI',
+                'perplexity': 'Perplexity'
+            };
+            statusBadge.textContent = modelNames[model] || 'Auto Mode';
         });
         
         // Check status
@@ -931,6 +1210,17 @@
             });
         
         document.getElementById('userInput').focus();
+        
+        // Welcome screen functionality
+        function startLearning() {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            welcomeScreen.classList.add('hidden');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                document.getElementById('mainApp').style.display = 'flex';
+                document.getElementById('userInput').focus();
+            }, 500);
+        }
     </script>
 </body>
 </html>
