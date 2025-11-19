@@ -9,9 +9,37 @@
 
 **Master Programming with Advanced Multi-AI System**
 
-[Problem](#-the-problem) • [Solution](#-our-solution) • [Architecture](#-architecture) • [Features](#-features) • [Installation](#-installation) • [Usage](#-usage)
+[Problem](#-the-problem) • [Solution](#-our-solution) • [Screenshots](#-screenshots) • [Architecture](#-architecture) • [Features](#-features) • [Installation](#-installation)
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+### Welcome Screen
+![Welcome Screen](screenshots/welcome-screen.png)
+*Beautiful animated landing page with feature showcase and call-to-action*
+
+### Chat Interface
+![Chat Interface](screenshots/chat-interface.png)
+*Professional chat interface with AI model selection and language support*
+
+### Code Generation
+![Code Generation](screenshots/code-generation.png)
+*Real-time code generation with syntax highlighting and markdown rendering*
+
+### AI Model Selection
+![AI Models](screenshots/ai-models.png)
+*Choose from 7 different AI models or use automatic selection*
+
+### Language Selection
+![Language Selection](screenshots/language-selection.png)
+*Support for 13+ programming languages in one platform*
+
+### Chat History
+![History Panel](screenshots/history-panel.png)
+*Persistent chat history with search and management features*
 
 ---
 
@@ -301,10 +329,10 @@ Java • Python • JavaScript • TypeScript • C++ • C • C# • Go • Ru
 
 ```bash
 # Clone the project
-git clone https://github.com/Maruf-Raduan/Project-Alfa.git
+git clone https://github.com/Maruf-Raduan/CodeLearning-AI.git
 
 # Navigate to project directory
-cd Project-Alfa
+cd CodeLearning-AI
 ```
 
 #### 2️⃣ Install Dependencies
@@ -413,95 +441,6 @@ type .env # Windows
 
 *Rate limited
 
-### Detailed Setup Instructions
-
-#### 1. Google Gemini (Recommended) ⭐
-
-**Why Gemini?**
-- Best overall performance
-- Supports image analysis
-- Generous free tier
-- Fast response times
-
-**Setup Steps:**
-1. Visit [Google AI Studio](https://aistudio.google.com/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy the key and add to `.env`:
-   ```env
-   GEMINI_API_KEY=AIzaSy...
-   ```
-
-#### 2. Groq (Fastest) ⚡
-
-**Setup Steps:**
-1. Visit [Groq Console](https://console.groq.com/keys)
-2. Sign up (email required)
-3. Navigate to API Keys
-4. Create new key
-5. Add to `.env`:
-   ```env
-   GROQ_API_KEY=gsk_...
-   ```
-
-#### 3. Cohere (High Limits) 📊
-
-**Setup Steps:**
-1. Visit [Cohere Dashboard](https://dashboard.cohere.com/api-keys)
-2. Sign up
-3. Go to API Keys section
-4. Copy your key
-5. Add to `.env`:
-   ```env
-   COHERE_API_KEY=...
-   ```
-
-#### 4. HuggingFace (Open Source) 🤗
-
-**Setup Steps:**
-1. Visit [HuggingFace](https://huggingface.co/settings/tokens)
-2. Create account
-3. Go to Settings → Access Tokens
-4. Create new token (read access)
-5. Add to `.env`:
-   ```env
-   HUGGINGFACE_API_KEY=hf_...
-   ```
-
-#### 5. DeepSeek (Powerful) 🧠
-
-**Setup Steps:**
-1. Visit [DeepSeek Platform](https://platform.deepseek.com/api_keys)
-2. Register account
-3. Generate API key
-4. Add to `.env`:
-   ```env
-   DEEPSEEK_API_KEY=sk-...
-   ```
-
-#### 6. OpenAI (Premium) 🔥
-
-**Setup Steps:**
-1. Visit [OpenAI Platform](https://platform.openai.com/api-keys)
-2. Create account
-3. Add payment method (free credits available)
-4. Create API key
-5. Add to `.env`:
-   ```env
-   OPENAI_API_KEY=sk-proj-...
-   ```
-
-#### 7. Perplexity (Search-Enhanced) 🔍
-
-**Setup Steps:**
-1. Visit [Perplexity Settings](https://www.perplexity.ai/settings/api)
-2. Sign up
-3. Generate API key
-4. Add to `.env`:
-   ```env
-   PERPLEXITY_API_KEY=pplx-...
-   ```
-
 ### Recommended Setup
 
 **For Beginners:**
@@ -545,95 +484,6 @@ Add multiple keys for redundancy and speed.
 2. Upload a code screenshot
 3. Ask questions about the code
 4. Get instant analysis
-
----
-
-## 🏗️ Project Structure
-
-```
-Project-Alfa/
-├── app.py                      # Flask application (main entry point)
-│   ├── Route: /                # Serve frontend
-│   ├── Route: /chat            # Handle chat requests
-│   └── Route: /status          # Check AI availability
-│
-├── multi_ai_assistant.py       # Multi-AI integration logic
-│   ├── MultiAIAssistant        # Main class
-│   ├── _initialize_ai()        # Auto-detect available AIs
-│   ├── chat()                  # Main chat interface
-│   ├── _chat_gemini()          # Gemini implementation
-│   ├── _chat_openai()          # OpenAI implementation
-│   ├── _chat_deepseek()        # DeepSeek implementation
-│   ├── _chat_groq()            # Groq implementation
-│   ├── _chat_cohere()          # Cohere implementation
-│   ├── _chat_huggingface()     # HuggingFace implementation
-│   └── _chat_perplexity()      # Perplexity implementation
-│
-├── index.html                  # Frontend UI (Single Page App)
-│   ├── Welcome Screen          # Animated landing page
-│   ├── Chat Interface          # Main chat UI
-│   ├── History Panel           # Chat history sidebar
-│   └── JavaScript Logic        # Frontend functionality
-│
-├── requirements.txt            # Python dependencies
-├── .env.example               # Environment template (safe for Git)
-├── .env                       # Your API keys (gitignored)
-├── .gitignore                 # Git ignore rules
-├── README.md                  # This file
-├── ARCHITECTURE.md            # Detailed architecture docs
-└── LICENSE                    # MIT License
-```
-
-### Key Files Explained
-
-**`app.py`** - Flask web server
-- Handles HTTP requests
-- Routes user messages to AI assistant
-- Serves static files
-- Manages CORS and security
-
-**`multi_ai_assistant.py`** - AI orchestration
-- Manages 7 AI model integrations
-- Implements fallback strategy
-- Handles errors and timeouts
-- Optimizes prompts per AI model
-
-**`index.html`** - Complete frontend
-- Modern, animated UI
-- Real-time chat interface
-- Markdown rendering
-- Syntax highlighting
-- LocalStorage for history
-
-**`.env`** - Configuration (DO NOT COMMIT)
-- Stores API keys securely
-- Loaded by python-dotenv
-- Gitignored for security
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file with your API keys:
-
-```env
-GEMINI_API_KEY=your_key_here
-GROQ_API_KEY=your_key_here
-COHERE_API_KEY=your_key_here
-HUGGINGFACE_API_KEY=your_key_here
-DEEPSEEK_API_KEY=your_key_here
-OPENAI_API_KEY=your_key_here
-PERPLEXITY_API_KEY=your_key_here
-```
-
-### Custom Port
-
-```bash
-# Default port is 8080
-PORT=3000 python app.py
-```
 
 ---
 
