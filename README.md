@@ -694,7 +694,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Maruf Raduan**
 
 - GitHub: [@Maruf-Raduan](https://github.com/Maruf-Raduan)
-- Project Link: [https://github.com/Maruf-Raduan/Project-Alfa](https://github.com/Maruf-Raduan/Project-Alfa)
+- Project Link: [https://github.com/Maruf-Raduan/CodeLearning-AI](https://github.com/Maruf-Raduan/CodeLearning-AI)
 
 ---
 
