@@ -18,7 +18,7 @@
 ## 📸 Screenshots
 
 ### Welcome Screen
-![Welcome Screen](screenshots/welcome-screen.png)
+![Welcome Screen](screenshots/welcome-screen (2).png)
 *Beautiful animated landing page with feature showcase and call-to-action*
 
 ### Chat Interface
@@ -26,7 +26,7 @@
 *Professional chat interface with AI model selection and language support*
 
 ### Code Generation
-![Code Generation](screenshots/code-generation.png)
+![Code Generation](screenshots/ai-reply-interface.png)
 *Real-time code generation with syntax highlighting and markdown rendering*
 
 ### AI Model Selection
@@ -34,11 +34,11 @@
 *Choose from 7 different AI models or use automatic selection*
 
 ### Language Selection
-![Language Selection](screenshots/language-selection.png)
+![Language Selection](screenshots/programming-language-selection.png)
 *Support for 13+ programming languages in one platform*
 
 ### Chat History
-![History Panel](screenshots/history-panel.png)
+![History Panel](screenshots/chat-history.png)
 *Persistent chat history with search and management features*
 
 ---
