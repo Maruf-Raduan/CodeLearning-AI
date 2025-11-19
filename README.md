@@ -18,7 +18,7 @@
 ## 📸 Screenshots
 
 ### Welcome Screen
-![Welcome Screen](screenshots/welcome-screen (2).png)
+![Welcome Screen](screenshots/welcome-screen.png)
 *Beautiful animated landing page with feature showcase and call-to-action*
 
 ### Chat Interface
@@ -34,7 +34,7 @@
 *Choose from 7 different AI models or use automatic selection*
 
 ### Language Selection
-![Language Selection](screenshots/programming-language-selection.png)
+![Language Selection](screenshots/language-selection.png)
 *Support for 13+ programming languages in one platform*
 
 ### Chat History
